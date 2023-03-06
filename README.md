@@ -78,7 +78,7 @@ After closing all you terminals, you can use the `launch_nav` launch script to n
 ros2 launch my_bot launch_nav.launch.py 
 ```
 
-> By default, it will load the `labyrinth` world and load the associated map on the map topic.
+> By default, it will load the `labyrinth` world and load the associated map on the map topic. You can edit the `launch_nav.launch.py` file to change that.
 
 Launch `rviz2` and use the `nav.rviz` config saved in `config/rviz` directory.
 
