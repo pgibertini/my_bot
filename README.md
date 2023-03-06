@@ -11,9 +11,8 @@ It uses the template provided my Articulated Robotics - a huge thanks to him and
 
 1. Clone the repo in the `src` directory of your ROS workspace.
 2. Build the project: `colcon build`
-3. Source the directory: `source install/setup.bash` (from the root of your ROS workspace)
-
 > You can use the `--symlink-install` argument to not have to re-build after every change (if you add a new file, you will have to re-build anyway).
+4. Source the directory: `source install/setup.bash` (from the root of your ROS workspace)
 
 ## Usage
 
