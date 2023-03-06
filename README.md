@@ -51,7 +51,11 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 ### Save a map
 
-Then, you can save the map using `ros2 run nav2_map_server map_saver_cli -f my_map`
+Then, you can save the map using 
+```bash
+ros2 run nav2_map_server map_saver_cli -f my_map
+```
+
 This will save you map as `my_map` in the current directory.
 
 ### Load a map
