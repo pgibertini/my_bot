@@ -61,6 +61,10 @@ This will save you map as `my_map` in the current directory.
 ### Load a map
 
 The launch script `load_map.launch.py` allows you to load a saved map.
+```bash
+ros2 launch my_bot load_map.launch.py 
+```
+
 By default, it will load the map called `labyrinth` in the config directory.
 
 To see the map in `rviz2`, select `map` as Fixed Frame and `Transient Local` as the durability policy in the Update Topic section of the Map topic. 
