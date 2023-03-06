@@ -3,6 +3,10 @@
 This is a simulation a package for running simulation on a differential robot.
 It uses the template provided my Articulated Robotics - a huge thanks to him and his awesome tutorials!
 
+![Robot display in rviz2](https://i.imgur.com/0iKLL6t.png)
+
+*The robot has a lidar on the top and a camera at the front.*
+
 ## Install
 
 1. Clone the repo in the `src` directory of your ROS workspace.
