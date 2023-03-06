@@ -12,7 +12,7 @@ def generate_launch_description():
 
     # Map server
     pkg_path = os.path.join(get_package_share_directory(package_name))
-    map_file = os.path.join(pkg_path, "config", "my_map.yaml")
+    map_file = os.path.join(pkg_path, "config", "labyrinth.yaml")
     map_server = Node(
         package="nav2_map_server",
         executable="map_server",
@@ -70,7 +70,7 @@ def generate_launch_description():
             ),
         ),
         launch_arguments=[
-            ("world", os.path.join(pkg_path, "worlds", "obstacles.world")),
+            ("world", os.path.join(pkg_path, "worlds", "labyrinth.world")),
             ("use_sim_time", "true"),
         ],
     )

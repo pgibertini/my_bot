@@ -9,7 +9,7 @@ def generate_launch_description():
 
     # Map server
     pkg_path = os.path.join(get_package_share_directory(package_name))
-    map_file = os.path.join(pkg_path, "config", "my_map.yaml")
+    map_file = os.path.join(pkg_path, "config", "labyrinth.yaml")
 
     return LaunchDescription(
         [
@@ -22,13 +22,6 @@ def generate_launch_description():
                     {"use_sim_time": True},
                     {"yaml_filename": map_file},
                 ],
-            ),
-            Node(
-                package="rviz2",
-                executable="rviz2",
-                name="rviz2",
-                parameters=[{"use_sim_time": True}],
-                output="screen",
             ),
             Node(
                 package="nav2_lifecycle_manager",
