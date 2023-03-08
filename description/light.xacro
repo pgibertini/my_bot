@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- LIGHT LINK -->
+
+    <joint name="light_joint" type="fixed">
+        <parent link="chassis" />
+        <child link="light_link" />
+        <origin xyz="${3/4 * length} 0 ${height + 0.5}" rpy="0 0 0" />
+    </joint>
+
+    <link name="light_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.02" length="1" />
+            </geometry>
+            <material name="white" />
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.02" length="1" />
+            </geometry>
+        </collision>
+
+        <xacro:inertial_cylinder mass="0.00001" radius="0.02" length="0.1">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <gazebo reference="light_link">
+        <light name='neon_light' type='spot'>
+            <cast_shadows>1</cast_shadows>
+            <pose>${1/2* length} 0 ${height + 0.5} 0 ${-pi/2} 0</pose>
+            <diffuse>0.1 0.0 0.5 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <direction>0 0 -1</direction>
+            <attenuation>
+                <range>20</range>
+                <constant>0.5</constant>
+                <linear>0.01</linear>
+                <quadratic>0.001</quadratic>
+            </attenuation>
+            <spot>
+                <inner_angle>1.57</inner_angle>
+                <outer_angle>2.44</outer_angle>
+                <falloff>1</falloff>
+            </spot>
+        </light>
+
+        <plugin name='light_control' filename='libFlashLightPlugin.so'>
+            <enable>true</enable>
+            <light>
+                <id>neon_light</id>
+                <duration>0.5</duration>
+                <interval>0.5</interval>
+            </light>
+        </plugin>
+
+    </gazebo>
+</robot>
