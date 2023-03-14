@@ -30,7 +30,7 @@
                 <image>
                     <format>B8G8R8</format>
                     <width>320</width>
-                    <height>100</height>
+                    <height>200</height>
                 </image>
                 <clip>
                     <near>0.05</near>
