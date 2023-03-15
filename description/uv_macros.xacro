@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="uv_range" value="3" />
+<xacro:property name="horizontal_angle" value="2.46" />
+<xacro:property name="mesh_size" value="0.05" />
+
+<xacro:macro name="laser_sensor" params="n z lower_angle upper_angle">
+  <joint name="laser_3d_joint_${n}" type="fixed">
+    <parent link="chassis" />
+    <child link="laser_3d_frame_${n}" />
+    <origin xyz="${3/4 * length} 0 ${height + 0.05 + z}" rpy="0 0 0" />
+  </joint>
+
+  <link name="laser_3d_frame_${n}">
+  </link>
+
+  <gazebo reference="laser_3d_frame_${n}">
+    <material>Gazebo/Red</material>
+
+    <sensor name="laser_${n}" type="ray">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>${round((uv_range * horizontal_angle) / mesh_size)}</samples>
+            <resolution>1.0</resolution>
+            <min_angle>-${horizontal_angle/2}</min_angle>
+            <max_angle>${horizontal_angle/2}</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>${round((uv_range * (lower_angle + upper_angle)) / mesh_size)}</samples>
+            <resolution>1.0</resolution>
+            <min_angle>-${lower_angle}</min_angle>
+            <max_angle>${upper_angle}</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.1</min>
+          <max>${uv_range}</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+      <plugin name="laser_scanner_${n}" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <namespace>/</namespace>
+          <argument>--ros-args --remap ~/out:=scan_${n}</argument>
+        </ros>
+        <output_type>sensor_msgs/PointCloud2</output_type>
+        <frame_name>laser_3d_frame_${n}</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+</xacro:macro>
+
+</robot>

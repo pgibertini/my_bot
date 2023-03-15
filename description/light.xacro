@@ -6,14 +6,14 @@
     <joint name="light_joint" type="fixed">
         <parent link="chassis" />
         <child link="light_link" />
-        <origin xyz="${3/4 * length} 0 ${height + 0.5}" rpy="0 0 0" />
+        <origin xyz="${3/4 * length} 0 ${height + 0.6 + 0.05}" rpy="0 0 0" />
     </joint>
 
     <link name="light_link">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <cylinder radius="0.02" length="1" />
+                <cylinder radius="0.01" length="1.2" />
             </geometry>
             <material name="white" />
         </visual>
@@ -21,7 +21,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <cylinder radius="0.02" length="1" />
+                <cylinder radius="0.01" length="1.2" />
             </geometry>
         </collision>
 
