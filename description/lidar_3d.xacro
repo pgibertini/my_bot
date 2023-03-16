@@ -8,7 +8,7 @@
     <xacro:laser_sensor n="4" z="0.9" lower_angle="1.36" upper_angle="1.03" />
     <xacro:laser_sensor n="5" z="1.2" lower_angle="1.41" upper_angle="0.15" />
 
-    <!-- Pose ground truth publisher 
+    <!-- Pose ground truth publisher  -->
     <gazebo>
         <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
         <ros>
@@ -17,7 +17,7 @@
         </ros>
         <frame_name>map</frame_name>
         <body_name>base_link</body_name>
-        <update_rate>50.0</update_rate>
+        <update_rate>1000.0</update_rate>
         </plugin>
-    </gazebo> -->
+    </gazebo>
 </robot>

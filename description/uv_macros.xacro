@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-<xacro:property name="uv_range" value="3" />
+<xacro:property name="uv_range" value="2" />
 <xacro:property name="horizontal_angle" value="2.46" />
-<xacro:property name="mesh_size" value="0.1" />
+<xacro:property name="mesh_size" value="0.05" />
 
 <xacro:macro name="laser_sensor" params="n z lower_angle upper_angle">
   <joint name="laser_3d_joint_${n}" type="fixed">
