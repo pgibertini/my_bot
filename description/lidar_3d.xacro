@@ -2,11 +2,11 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
     <xacro:include filename="uv_macros.xacro" />
 
-    <xacro:laser_sensor n="1" z="0.0" lower_angle="0.06" upper_angle="1.18" />
-    <!-- <xacro:laser_sensor n="2" z="0.3" lower_angle="1.03" upper_angle="1.36" /> -->
-    <xacro:laser_sensor n="3" z="0.6" lower_angle="0.9" upper_angle="0.9" />
-    <!-- <xacro:laser_sensor n="4" z="0.9" lower_angle="1.36" upper_angle="1.03" /> -->
-    <xacro:laser_sensor n="5" z="1.2" lower_angle="1.18" upper_angle="0.09" />
+    <xacro:laser_sensor n="1" z="0.0" lower_angle="0.15" upper_angle="1.41" />
+    <xacro:laser_sensor n="2" z="0.3" lower_angle="1.03" upper_angle="1.36" />
+    <xacro:laser_sensor n="3" z="0.6" lower_angle="1.26" upper_angle="1.26" />
+    <xacro:laser_sensor n="4" z="0.9" lower_angle="1.36" upper_angle="1.03" />
+    <xacro:laser_sensor n="5" z="1.2" lower_angle="1.41" upper_angle="0.15" />
 
     <!-- Pose ground truth publisher 
     <gazebo>

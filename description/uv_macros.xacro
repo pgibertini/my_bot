@@ -3,7 +3,7 @@
 
 <xacro:property name="uv_range" value="3" />
 <xacro:property name="horizontal_angle" value="2.46" />
-<xacro:property name="mesh_size" value="0.05" />
+<xacro:property name="mesh_size" value="0.1" />
 
 <xacro:macro name="laser_sensor" params="n z lower_angle upper_angle">
   <joint name="laser_3d_joint_${n}" type="fixed">
@@ -25,13 +25,13 @@
       <ray>
         <scan>
           <horizontal>
-            <samples>${round((uv_range * horizontal_angle) / mesh_size)}</samples>
+            <samples>${round((uv_range * horizontal_angle) / mesh_size) + 2}</samples>
             <resolution>1.0</resolution>
             <min_angle>-${horizontal_angle/2}</min_angle>
             <max_angle>${horizontal_angle/2}</max_angle>
           </horizontal>
           <vertical>
-            <samples>${round((uv_range * (lower_angle + upper_angle)) / mesh_size)}</samples>
+            <samples>${round((uv_range * (lower_angle + upper_angle)) / mesh_size) + 2}</samples>
             <resolution>1.0</resolution>
             <min_angle>-${lower_angle}</min_angle>
             <max_angle>${upper_angle}</max_angle>
